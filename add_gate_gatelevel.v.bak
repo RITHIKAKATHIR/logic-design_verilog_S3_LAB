@@ -1,0 +1,8 @@
+module add_gate_gatelevel(input a,b, output y);
+
+input a;
+input b;
+output y;
+
+and(y,a,b);
+endmodule 

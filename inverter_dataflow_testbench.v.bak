@@ -1,0 +1,15 @@
+module inverter_dataflow_testbench;
+wire out;
+reg in;
+
+inverter_dataflow instance(.(out),.(in));
+
+initial 
+begin
+ in=0;
+ 
+ #10 in=1;
+end
+
+endmodule 
+

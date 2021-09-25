@@ -1,0 +1,15 @@
+module interarray_testbench;
+
+wire in[15:0];
+reg out[15:0];
+integer i;
+
+inverterarray_dataflow interarrayob(.a(in),.y(out));
+for(i=1b'0;;)
+begin
+in[i]=~out[i];
+if(i==0)
+ i=1b'1
+end
+
+endmodule

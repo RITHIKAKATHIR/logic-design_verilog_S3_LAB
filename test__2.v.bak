@@ -1,0 +1,15 @@
+module test_2tb;
+
+reg a,b,c,d,e,f,g,h;
+wire y;
+
+test_2 obj(a,b,c,d,e,f,g,h,y);
+
+initial 
+ begin 
+  a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=0;
+ #10 a=0;b=0;c=0;d=0;e=0;f=0;g=0;h=1;
+  
+ end
+
+endmodule
