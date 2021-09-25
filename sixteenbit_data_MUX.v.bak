@@ -1,0 +1,10 @@
+module sixteenbit_data_MUX(y_out,in_y,in_y_,in_selec);
+output [15:0]y_out;
+input [15:0] in_y, in_y_;
+input [2:0] in_selec;
+//wire[2:0]inv_s;
+//wire[15:0]inter_t;
+//wire[15:0]inter_t2;
+
+assign y_out=~(~(in_y&~(in_selec&in_selec))&~(in_y_&in_selec));
+endmodule
