@@ -1,0 +1,22 @@
+module nandarray_gatelvl(y,a);
+output[16:1] y;
+input[16:1] a;
+
+nand(y1,a1);
+nand(y2,a2);
+nand(y3,a3);
+nand(y4,a4);
+nand(y5,a5);
+nand(y6,a6);
+nand(y7,a7);
+nand(y8,a8);
+nand(y9,a9);
+nand(y10,a10);
+nand(y11,a11);
+nand(y12,a12);
+nand(y13,a13);
+nand(y14,a14);
+nand(y15,a15);
+nand(y16,a16);
+
+endmodule

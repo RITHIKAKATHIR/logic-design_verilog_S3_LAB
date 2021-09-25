@@ -1,0 +1,5 @@
+module nand_input_gatelevel(a,b,c,d,e,f,g,h,out);
+input a,b,c,d,e,f,g,h;
+output out;
+nand(out,a,b,c,d,e,f,g,h);
+endmodule 
