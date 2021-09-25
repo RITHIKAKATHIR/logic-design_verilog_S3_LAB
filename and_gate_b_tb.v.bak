@@ -1,0 +1,17 @@
+module and_gate_b_mod_tb;
+
+wire y;
+reg a,b;
+
+and_get_b_mod a1(a,b,y);
+always
+
+ begin
+ #10 a=1'b0; b=1'b0;
+ #10 a=1'b1;b=1'b0;
+ #10 a=1'b0;b=1'b1;
+ #10 a=1'b1;b=1'b1;
+ end
+ 
+ 
+endmodule 

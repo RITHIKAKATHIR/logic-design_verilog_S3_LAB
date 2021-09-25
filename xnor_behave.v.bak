@@ -1,0 +1,15 @@
+module xnor_behave(a,b,y);
+input a,b;
+output reg y;
+
+always@(a,b)
+ begin 
+ if(a==0&b==0)
+c=1;
+else if(a==1&b==1)
+c=1;
+else if((a==0&b==1)|(a==1&b==0))
+c=0;
+ end
+ 
+endmodule 

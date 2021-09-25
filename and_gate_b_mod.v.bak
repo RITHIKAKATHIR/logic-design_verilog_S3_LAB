@@ -1,0 +1,11 @@
+module and_gate_b_mod(a,b,y)
+output out;
+input in;
+
+reg out;
+always@(a,b)
+ begin
+ y=a&b;
+ end
+ 
+endmodule 

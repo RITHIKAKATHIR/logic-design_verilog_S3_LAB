@@ -1,0 +1,9 @@
+module or_bmod(a,b,y);
+output y;
+input a,b;
+always@(a,b)
+ begin
+ y=a|b;
+ end
+ 
+endmodule 
