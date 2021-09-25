@@ -1,0 +1,6 @@
+module xor_gatelevel(a,b,y);
+output y;
+input a,b;
+xor(y,a,b);
+
+endmodule 
