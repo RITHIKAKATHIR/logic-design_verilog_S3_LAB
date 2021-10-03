@@ -1,0 +1,15 @@
+module fuller_adder_q2(input_1,input_2,carry_in,sum,carry_out);
+
+input input_1,input_2,carry_in; 
+
+output sum,carry_out;
+wire t,t1,t2,t3;
+xor(t,input_1,input_2);
+xor(sum,t,carry_in);
+and(t1,input_1,input_2);
+and(t2,input_2,carry_in);
+and(t3,carry_in,input_1);
+or(carry_out,t1,t2,t3);
+
+
+endmodule
