@@ -1,0 +1,16 @@
+module carry_lookahead_adder_gate(input [3:0] A,B,input cin,output [3:0] S,output cout);
+            
+wire [3:0] P,G;
+wire [4:0] C;   
+    
+xor obj[3:0](P,A,B);
+
+and obj1[3:0](G,A,B);
+
+cla_block gen_c(P,G,cin,C);
+
+xor obj2[3:0](S,P,C)
+assign S = P ^ C[3:0];
+assign cout = C[4];
+
+endmodule
