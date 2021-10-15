@@ -1,0 +1,12 @@
+module(sum,carry,input_A,input_B);
+input input_A;
+input input_B;
+output reg sum,carry;
+always@(a,b)
+ begin
+   s=a^b;
+	c=a&b;
+ end
+ 
+ endmodule
+ 

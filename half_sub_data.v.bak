@@ -1,0 +1,4 @@
+module Half_Subtractor_2(output difference,barrow,input X_in, Y_in);
+assign difference = X_in ^ Y_in;
+assign barrow = ~X_in & Y_in;
+endmodule

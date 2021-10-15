@@ -1,0 +1,3 @@
+module add_sub_datatb;
+reg a_input,b_input,c_in;
+wire sum,carry_out;

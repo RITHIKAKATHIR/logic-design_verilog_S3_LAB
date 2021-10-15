@@ -1,0 +1,23 @@
+module ripple_carry_adder(x_in,y_in,Ci,s_out,c_out);
+ input [31:0] X,Y;
+ output [31:0] S;
+ output Co;
+ wire w1, w2, w3;
+ 
+ assign Ci=0;
+ 
+ for(integer i=0;i<=31;i++)
+  begin
+    assign w1=X[i]^Y[i];
+    assign S[i]=w1^0;
+    assign w2=w1&0;
+    assign w3=X[i]&Y[i];
+    assign Cp=w2|w3;
+	 assign Ci=w1;
+ end
+ 
+ endmodule
+ 
+
+ 
+  

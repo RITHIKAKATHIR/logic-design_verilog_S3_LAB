@@ -1,0 +1,19 @@
+module add_sub_f_data(A, B, In, Res, Out);
+    input A, B;
+    input In;
+    output Res;
+    output Out;
+    wire t3;
+
+
+t3=B^In;
+
+          fadder f5(A[0],t3,In,Res[0],t1);
+    wire t1,t2,t3,t4;
+  xor x1(t1=A^t3);
+  xor x2(Sum=t1^In);
+  and g1(t2=A&t3);
+  and g2(t3=t3&In);
+  and g3(t4=In&A);
+  or  g4(t1=t2|t3|t4;  
+

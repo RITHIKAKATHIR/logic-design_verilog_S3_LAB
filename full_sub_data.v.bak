@@ -1,0 +1,44 @@
+
+
+
+
+
+
+
+module half_subtractor(a4, b4, c4, d4);
+
+input a4, b4;
+
+output c4, d4;
+
+wire x;
+
+xor_gate u1(a4, b4, c4);
+
+and_gate u2(x, b4, d4);
+
+not_gate u3(a4, x);
+
+endmodule
+
+
+module full_sub_data(A_input,B_input,Bow_in,D_f,Bow_out);
+
+input A_input,B_input,Bow_in;
+
+output D_f,Bow_out;
+
+wire p,q,r;
+assign p = A_input ^ B_input;
+assign q = ~A_input & B_input;
+
+
+
+assign D_F= p^Bow_in;
+assign r=~p&Bow_in;
+
+assign Bout=r+q;
+
+or_gate u6(q, r, Bout);
+
+endmodule

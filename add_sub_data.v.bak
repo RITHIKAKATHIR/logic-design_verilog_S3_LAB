@@ -1,0 +1,32 @@
+module add_sub_data(a_input,b_input,c_in,sum,carry_out);
+input a_input,b_input,c_in;
+output sum,carry_out;
+wire a1;
+
+a1=a_input^1;
+wire s0bar, s1bar, T1, T2, T3, T4;
+
+s0bar= b_input^1;
+s1bar= c_in^1;
+T1=a_input&s0bar&s1bar;
+T2= a1&s0bar&c_in;
+T3= a1&b_input&s1bar;
+T4= a_input&b_input&c_in;
+
+sum=T1|T2|T3|T4;
+
+Wire p,q,r,s,t,u;
+
+p=b_input^1;
+q=c_in^1;
+r=0&p&q;
+s=a_input&p&c_in;
+t=a_input&b_input&q;
+u=1&b_input&c_in;
+
+carry_out=r|s|t|u;
+
+endmodule
+
+
+
