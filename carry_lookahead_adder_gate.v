@@ -1,67 +1,36 @@
-module carry_lookahead_adder_gate(input [3:0] i_add_1,input [3:0] i_add_2,output [4:0] op_result);
-wire [4:0] w_C;
-wire [3:0] w_G, w_P, w_SUM;
-   
-full_adder full_adder_bit_0(.i_bit1(i_add_1[0]),.i_bit2(i_add_2[0]),.i_carry(w_C[0]),.o_sum(w_SUM[0]),.o_carry());
+module carry_lookahead_adder_gate(a,b, cin, sum,cout);
+input [3:0] a,b;
+input cin;
+output [3:0] sum;
+output cout;
  
-full_adder full_adder_bit_1
-    ( 
-      .i_bit1(i_add_1[1]),
-      .i_bit2(i_add_2[1]),
-      .i_carry(w_C[1]),
-      .o_sum(w_SUM[1]),
-      .o_carry()
-      );
+wire [3:0] p,g,c;
  
-  full_adder full_adder_bit_2
-    ( 
-      .i_bit1(i_add_1[2]),
-      .i_bit2(i_add_2[2]),
-      .i_carry(w_C[2]),
-      .o_sum(w_SUM[2]),
-      .o_carry()
-      );
-   
-  full_adder full_adder_bit_3
-    ( 
-      .i_bit1(i_add_1[3]),
-      .i_bit2(i_add_2[3]),
-      .i_carry(w_C[3]),
-      .o_sum(w_SUM[3]),
-      .o_carry()
-      );
-   
-  
-  and(w_G[0],i_add_1[0],i_add_2[0]);
-  and(w_G[1],i_add_1[1],i_add_2[1]);
-  and(w_G[2],i_add_1[2],i_add_2[2]);
-  and(w_G[3],i_add_1[3],i_add_2[3]);
+xor(p,a,b);
+xor(g,a,b); 
  
-  
-  or( w_P[0],i_add_1[0],i_add_2[0]);
-  or(w_P[1],i_add_1[1],i_add_2[1]);
-  or(w_P[2],i_add_1[2],i_add_2[2]);
-  or(w_P[3],i_add_1[3],i_add_2[3]);
  
- wire t2;
- 
-  
-  
-	and ob(t2,w_P[0],0);
-   or obj(w_C[1],w_G[0],t2);
-	wire t3;
-	and ob1(t3,w_P[1],w_C[1]);
-   or obj1(w_C[2],w_G[1],t3);
-	
-	wire t4;
-	and ob2(t4,w_P[2],w_C[2]);
-   or obj2(w_C[3],w_G[2],t4);
-	
-	wire t5;
-	and ob3(t5,w_P[3],w_C[3]);
-   or obj3(w_C[4],w_G[3],t5);
+or(c[0],cin,cin);
+wire t1;
+and(t1,p[0],c[0]);
+or(c[1],g[0],t1);
 
-   
-  assign op_result = {w_C[4], w_SUM};   
- 
+wire t2,t3;
+and(t2,p[1],p[0],c[0]);
+and(t3,p[1],g[0]);
+or(c[2],g[1],t2,t3);
+
+wire t4,t5,t6;
+and(t4,p[2],p[1],p[0],c[0]);
+and(t5,p[2],p[1],g[0]);
+and(t6,p[2],g[1]);
+or(c[3],g[2],t6,t5,t4);
+
+wire t7,t8,t9,t10;
+and(t7,p[3],p[2],p[1],p[0],c[0]);
+and(t8,p[3],p[2],p[1],g[0]);
+and(t9,p[3],p[2],g[1]);
+and(t10,p[3],g[2]);
+or(cout,g[3],t7,t8,t9,t10);
+xor(sum,p,c); 
 endmodule

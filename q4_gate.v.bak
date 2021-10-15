@@ -1,0 +1,77 @@
+module carry_select_adder_16bit(a_input, b_input, cin_carry, sum, cout_carry);
+input [31:0] a,b;
+input cin;
+output [31:0] sum;
+output cout;
+ 
+wire [7:0] c;
+ 
+ripple_carry_4_bit rca1(
+.a(a[3:0]),
+.b(b[3:0]),
+.cin(cin),
+.sum(sum[3:0]),
+.cout(c[0]));
+
+ 
+carry_select_adder_4bit_slice csa_slice1(
+.a(a[7:4]),
+.b(b[7:4]),
+.cin(c[0]),
+.sum(sum[7:4]),
+.cout(c[1]));
+ 
+carry_select_adder_4bit_slice csa_slice2(
+.a(a[11:8]),
+.b(b[11:8]),
+.cin(c[1]),
+.sum(sum[11:8]), 
+.cout(c[2]));
+ 
+carry_select_adder_4bit_slice csa_slice3(
+.a(a[15:12]),
+.b(b[15:12]),
+.cin(c[2]),
+.sum(sum[15:12]),
+.cout(c[3]));
+
+carry_select_adder_4bit_slice csa_slice3(
+.a(a[16:13]),
+.b(b[16:13]),
+.cin(c[3]),
+.sum(sum[16:13]),
+.cout(c[4]));
+
+carry_select_adder_4bit_slice csa_slice3(
+.a(a[19:16]),
+.b(b[19:16]),
+.cin(c[4]),
+.sum(sum[19:16]),
+.cout(c[5]));
+
+carry_select_adder_4bit_slice csa_slice3(
+.a(a[23:20]),
+.b(b[23:20]),
+.cin(c[5]),
+.sum(sum[23:20]),
+.cout(c[6]));
+
+carry_select_adder_4bit_slice csa_slice3(
+.a(a[27:24]),
+.b(b[27:24]),
+.cin(c[6]),
+.sum(sum[27:24]),
+.cout(c[7]));
+
+carry_select_adder_4bit_slice csa_slice3(
+.a(a[31:28]),
+.b(b[31:28]),
+.cin(c[7]),
+.sum(sum[31:28]),
+.cout(cout));
+
+
+
+
+
+endmodule
