@@ -1,15 +1,8 @@
-module fuller_adder_q2(input_1,input_2,carry_in,sum,carry_out);
-
-input input_1,input_2,carry_in; 
-
-output sum,carry_out;
-wire t,t1,t2,t3;
-xor(t,input_1,input_2);
-xor(sum,t,carry_in);
-and(t1,input_1,input_2);
-and(t2,input_2,carry_in);
-and(t3,carry_in,input_1);
-or(carry_out,t1,t2,t3);
-
-
-endmodule
+module fuller_adder_q2 (input input_X1, input_X2, carry_Cin,output sum_S, carry_Cout);  
+ wire a1, a2, a3;    
+ xor obju1(a1,input_X1,input_X2);
+ and obju2(a2,input_X1,input_X2);
+ and obju3(a3,a1,carry_Cin);
+ or obju4(carry_Cout,a2,a3);
+ xor obju5(sum_S,a1,carry_Cin); 
+endmodule  

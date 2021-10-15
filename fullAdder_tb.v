@@ -1,28 +1,28 @@
 module fullAdder_tb;
-reg A_input;
-reg B_input;
-reg Cin_input;
-wire S_output;
-wire Cout_output;
-fuller_adder_behave obj(.A_input(A_input),.B_input(B_input),.Cin_input(Cin_input),.S_output(S_output),.Cout_output(Cout_output));
+reg input_X1;
+reg input_X2;
+reg carry_Cin;
+wire sum_S;
+wire carry_Cout;
+fuller_adder_q2 obj(.input_X1(input_X1),.input_X2(input_X2),.carry_Cin(carry_Cin),.sum_S(sum_S),.carry_Cout(carry_Cout));
 
  initial 
   begin
-    A_input=1'b0;B_input=1'b0;Cin_input=1'b0;
+    input_X1=1'b0;input_X2=1'b0;carry_Cin=1'b0;
     #10
-	 A_input=1'b0;B_input=1'b0;Cin_input=1'b1;
+	 input_X1=1'b0;input_X2=1'b0;carry_Cin=1'b1;
 	 #10
-	 A_input=1'b0;B_input=1'b1;Cin_input=1'b0;
+	 input_X1=1'b0;input_X2=1'b1;carry_Cin=1'b0;
 	 #10
-	 A_input=1'b0;B_input=1'b1;Cin_input=1'b1;
+	 input_X1=1'b0;input_X2=1'b1;carry_Cin=1'b1;
 	 #10
-	 A_input=1'b1;B_input=1'b0;Cin_input=1'b0;
+	 input_X1=1'b1;input_X2=1'b0;carry_Cin=1'b0;
 	 #10
-	 A_input=1'b1;B_input=1'b1;Cin_input=1'b1;
+	 input_X1=1'b1;input_X2=1'b1;carry_Cin=1'b1;
 	 #10
-	 A_input=1'b1;B_input=1'b0;Cin_input=1'b1;
+	 input_X1=1'b1;input_X2=1'b0;carry_Cin=1'b1;
 	 #10
-	 A_input=1'b1;B_input=1'b1;Cin_input=1'b0;
+	 input_X1=1'b1;input_X2=1'b1;carry_Cin=1'b0;
   end
      
 endmodule

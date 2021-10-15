@@ -1,0 +1,3 @@
+module addsub_q9;
+reg a_input,b_input,c_in;
+wire sum,carry_out;

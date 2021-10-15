@@ -1,0 +1,27 @@
+module tb_alu;
+//Inputs
+ reg A,B;
+ reg alu_Sel_line;
+
+//Outputs
+ wire alu_resu;
+ wire Carryout;
+ // Verilog code for ALU
+ integer i;
+ alu_add(A_input, B_input, alu_Sel_line, alu_resu,carryout);
+    initial begin
+      A = 8'h0A;
+      B = 4'h02;
+      ALU_Sel = 4'h0;
+      
+      for (i=0;i<=15;i=i+1)
+      begin
+       ALU_Sel = ALU_Sel + 8'h01;
+       #10;
+      end;
+      
+      A = 8'hF6;
+      B = 8'h0A;
+      
+    end
+endmodule

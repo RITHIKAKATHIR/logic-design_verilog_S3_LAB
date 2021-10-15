@@ -1,0 +1,16 @@
+module ripple_carry_q3(A,B,carry_in,sum,carry_out);
+input[31:0] A,B;
+input carry_in;
+output[31:0] sum;
+output carry_out;
+wire [16:0] t_carry;
+xor array_of_full_adders[31:0](t_carry,A,B);
+xor array_of_adder[31:0](sum,t_carry,carry_in);
+
+and obj[31:0](t1,A,B);
+and obje[31:0](t2,B,carry_in);
+and obbj[31:0](t3,carry_in,A);
+or FINAL_OBJ[31:0](carry_out,t1,t2,t3);
+
+
+endmodule

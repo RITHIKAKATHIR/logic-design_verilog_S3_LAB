@@ -1,0 +1,25 @@
+module half_adder_tb;
+ 
+  reg i_bit_1;
+  reg i_bit_2;
+  wire o_sum;
+  wire o_carry;
+   
+  half_adder_data object(.i_bit_1(i_bit_1),.i_bit_2(.i_bit_2),.o_sum(o_sum),.o_carry(o_carry));
+  initial
+    begin
+      i_bit_1 = 1'b0;
+      i_bit_2 = 1'b0;
+      #10;
+      i_bit_1 = 1'b0;
+      i_bit_2 = 1'b1;
+      #10;
+      i_bit_1 = 1'b1;
+      i_bit_2 = 1'b0;
+      #10;
+      i_bit_1 = 1'b1;
+      i_bit_2= 1'b1;
+      #10;
+    end 
+ 
+endmodule

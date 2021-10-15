@@ -1,0 +1,9 @@
+module half_sub(a_1, b_1, c_1);
+
+input a_1, b_1;
+
+output c_1;
+
+xor(c_1,a_1,b_1);
+
+endmodule

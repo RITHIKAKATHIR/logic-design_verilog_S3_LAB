@@ -1,0 +1,40 @@
+module ripple_carry_q3(X, Y, S, Co);
+ input [31:0] X, Y;
+ output [31:0] S;
+ output Co;
+ wire w1,w2,w3,w4,w5,w6,w7,w8,w9,w10,w11,w12,w13,w14,w15,w16,w17,w18,w19,w20,w21,w23,w24,w25,w26,w27,w28,w29,w30,w31;
+
+ fuller_adder_q2 u1(X[0], Y[0], 1'b0, S[0], w1);
+ fuller_adder_q2 u2(X[1], Y[1], w1, S[1], w2);
+ fuller_adder_q2 u3(X[2], Y[2], w2, S[2], w3);
+ fuller_adder_q2 u4(X[3], Y[3], w3, S[3], w4);
+ fuller_adder_q2 u5(X[4], Y[4], w4, S[4], w5);
+ fuller_adder_q2 u977(X[5], Y[5], w5, S[5], w6);
+ fuller_adder_q2 u54(X[6], Y[6], w6, S[6], w7);
+ fuller_adder_q2 u34(X[7], Y[7], w7, S[7], w8);
+ fuller_adder_q2 u24(X[8], Y[8], w8, S[8], w9); 
+ fuller_adder_q2 u46(X[9], Y[9], w9, S[9], w10);
+ fuller_adder_q2 u43(X[10], Y[10], w10, S[10], w11); 
+ fuller_adder_q2 u423(X[11], Y[11], w11, S[11], w12);
+ fuller_adder_q2 u49(X[12], Y[12], w12, S[12], w13);
+ fuller_adder_q2 u50(X[13], Y[13], w13, S[13], w14);
+ fuller_adder_q2 u64(X[14], Y[14], w14, S[14], w15);
+ fuller_adder_q2 u74(X[15], Y[15], w15, S[15], w16);
+ fuller_adder_q2 u84(X[16], Y[16], w16, S[16], w17);
+ fuller_adder_q2 u94(X[17], Y[17], w17, S[17], w18);
+ fuller_adder_q2 u104(X[18], Y[18], w18, S[18], w19);
+ fuller_adder_q2 u411(X[19], Y[19], w19, S[19], w20);
+ fuller_adder_q2 u124(X[20], Y[20], w20, S[20], w21);
+ fuller_adder_q2 u413(X[21], Y[21], w21, S[21], w22);
+ fuller_adder_q2 u414(X[22], Y[22], w22, S[22], w23);
+ fuller_adder_q2 u334(X[23], Y[23], w23, S[23], w24);
+ fuller_adder_q2 u332(X[24], Y[24], w24, S[24], w25);
+ fuller_adder_q2 u322(X[25], Y[25], w25, S[25], w26);
+ fuller_adder_q2 u355(X[26], Y[26], w26, S[26], w27);
+ fuller_adder_q2 u311(X[27], Y[27], w27, S[27], w28);
+ fuller_adder_q2 u3322(X[28], Y[28], w28, S[28], w29);
+ fuller_adder_q2 u3432(X[29], Y[29], w29, S[29], w30);
+ fuller_adder_q2 u3123(X[30], Y[30], w30, S[30], w31);
+ fuller_adder_q2 u3111(X[31], Y[31], w31, S[31], Co);
+						
+endmodule
