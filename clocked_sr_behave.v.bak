@@ -1,0 +1,13 @@
+module clocked_sr_behave(enable, set, reset, q_out,q_bar);
+input enable, set, reset;
+output reg q_out, q_bar;
+wire i, j;
+
+always@(enable, set, reset)
+ begin
+  assign i=~(enable&set);
+  assign j=~(enable&reset);
+  assign q_bar=~(j&q_out);
+  assign q_out=~(i&q_bar);
+ end
+endmodule

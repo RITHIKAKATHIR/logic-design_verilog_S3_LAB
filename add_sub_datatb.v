@@ -1,24 +1,24 @@
 module add_sub_datatb;
-reg a_input,b_input,c_in;
-wire sum,carry_out;
-add_sub_data obj(.a_input(a_input),.b_input(b_input),.c_in(c_in),.sum(sum),.carry_out(carry_out));
+reg A,B,In;
+wire Res,Out;
+q10_behave obj(.A(A),.B(B),.In(In),.Res(Res),.Out(Out));
  initial 
   begin
-    a_input=1'b0;b_input=1'b0;c_in=1'b0;
+    A=1'b0;B=1'b0;In=1'b0;
     #10
-	 a_input=1'b0;b_input=1'b0;c_in=1'b1;
+	 A=1'b0;B=1'b0;In=1'b1;
 	 #10
-	 a_input=1'b0;b_input=1'b1;c_in=1'b0;
+	 A=1'b0;B=1'b1;In=1'b0;
 	 #10
-	 a_input=1'b0;b_input=1'b1;c_in=1'b1;
+	 A=1'b1;B=1'b0;In=1'b0;
 	 #10
-	 a_input=1'b1;b_input=1'b0;c_in=1'b0;
+	 A=1'b1;B=1'b1;In=1'b1;
 	 #10
-	 a_input=1'b1;b_input=1'b1;c_in=1'b1;
+	 A=1'b1;B=1'b0;In=1'b1;
 	 #10
-	 a_input=1'b1;b_input=1'b0;c_in=1'b1;
-	 #10
-	 a_input=1'b1;b_input=1'b1;c_in=1'b0;
+	 A=1'b1;B=1'b1;In=1'b0;
   end
+     
+
      
 endmodule
