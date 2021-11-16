@@ -1,0 +1,65 @@
+module unsigned_multi(A_in,B_in,result_out);
+input[3:0] A_in,B_in;
+output[7:0] result_out;
+assign result_out[0]=A_in[0]&B_in[0];
+wire t1,t2;
+assign t1=B_in[1]&A_in[0];
+assign t2=B_in[0]&A_in[1];
+wire o_carry;
+half_adder_data obj1(t1,t2,result_out[1],o_carry);
+
+wire t_1,t_2;
+assign t_1=B_in[2]&A_in[0];
+assign t_2=B_in[1]&A_in[1];
+wire o_carry1,r1;
+full_adder_data obj2(t_1,t_2,o_carry,r1,o_carry1);
+wire ww;
+assign ww=A_in[2]&B_in[0]
+wire o_carry12;
+half_adder_data obj4(r1,ww,result_out[2],o_carry12);
+
+
+wire t__1,t__2;
+assign t__1=B_in[3]&A_in[0];
+assign t__2=A_in[1]&B_in[2];
+wire carry_11,r11;
+full_adder_data obj3(t__1,t__2,o_carry1,r11,o_carry11);
+wire ww1;
+assign ww1=B_in[1]&&A_in[2];
+wire r113,o_carry113;
+full_adder_data obj3(r11,ww1,o_carry12,r113,o_carry113);
+wire ww56=B_in[0]&A_in[3]
+half_adder_data obj4(r113,ww56,result_out[3],o_carry132);
+
+wire rr;
+assign rr=B_in[3]&A_in[1];
+wire ha_o,o_carryha;
+half_adder_data obj4(rr,o_carry11,ha_o,o_carryha);
+wire ww1j;
+assign ww1j=B_in[2]&A_in[2];
+full_adder_data obj3(ha_o,ww1j,o_carry113,final_1,o_carryp);
+wire ww1j1;
+assign ww1j1=B_in[1]&A_in[3]; 
+full_adder_data obj3(final_1,ww1j1,o_carry113,result_out[4],o_carrypp);
+
+//wire ww1j12;
+ww1j12=B_in[3]&A_in[2];
+full_adder_data obj3(carryha,ww1j12,o_carryp,result_out[4],o_carryp);
+
+full_adder_data obj3(final_1,ww1j1,o_carry113,result_out[4],o_carryp);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

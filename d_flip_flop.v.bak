@@ -1,0 +1,7 @@
+module d_flip_flop(d_in,prst,clr,clk,q,q_bar);
+input d_in,prst,clr,clk;
+output q,q_bar;
+wire neg_prst;
+not(neg_prst,prst);
+and(term,clr,clk,d_in);
+or(q,neg_prst,term);

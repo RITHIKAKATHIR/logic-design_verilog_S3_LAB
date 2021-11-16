@@ -1,0 +1,8 @@
+module MAC_UNIT(clk,rst, a,b, z);    
+input clk,rst;    
+input [2:0] a,b;    
+output [5:0] z;    
+wire [5:0] w; 
+multiplier U1(.a(a),.b(b),.p(w));  
+pipo U2(.RIN(w), .clk(clk),.rst(rst),.ROUT(z));
+endmodule

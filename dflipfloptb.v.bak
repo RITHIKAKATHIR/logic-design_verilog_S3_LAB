@@ -1,0 +1,11 @@
+module dflipfloptb;
+reg d_in,clk_in;
+wire q_out,q_bar_out;
+initial 
+begin
+d_in='bx;clk_in=1'b0;
+d_in 1'b0;clk_in=1'b1;
+d_in=1'b1; clk_in=1'b1;
+end
+
+endmodule

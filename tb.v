@@ -1,21 +1,14 @@
 module tb;
-reg [3:0] a_input,b_input;
-reg c_input;
-wire [4:0] s_sumop;
-wire carryout;
+  reg [3:0] data_a1, data_b1;
+  wire [3:0] out1;
+ sub_assn obj(data_a1,data_b1,out1);
+initial 
+  begin
+    $monitor("data_a = %4b, data_b = %4b, out1=%4b", data_a1, data_b1, out1);
+ 
+    data_a1 = 4'b1010; data_b1 = 4'b0010; #20;
+	 data_a1=  4'b0011; data_b1= 4'b0010;  #20;
+    $finish;
+  end
 
-  TESTASSN2 obj(a_input,b_input,c_input,carryout, s_sumop);
-  initial  
-   begin
-    a_input=4'b0111; b_input=4'b0010;c_input=1'b0;
-    #10;
-    a_input=4'b0100; b_input=4'b0011;c_input=1'b1;
-    #10;
-    a_input=4'b0000; b_input=4'b0010;c_input=1'b0;
-    #10;
-    a_input=4'b1000; b_input=4'b0001;c_input=1'b1;
-   end
-
-endmodule
-    
-    
+endmodule 

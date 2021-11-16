@@ -1,0 +1,12 @@
+module sub_seq(input shift_control,input clk,input serial_input,input clear);
+wire shift_reg_A;
+wire shift_reg_B;
+shift_Reg obj_A(shift_control,clk,shift_reg_A);
+shift_Reg obj_B(shift_control,serial_input,shift_reg_B);
+wire neg_b;
+assign neg_b=~shift_reg_B;
+wire d,q;
+dlatch_test obj_1(clear,clk,d,q);
+wire s,c;
+full_adder objj(neg_b,q,shift_Reg_A,s,c)
+

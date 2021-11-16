@@ -1,0 +1,8 @@
+module mac(clk,rst,data_a,data_b,out);
+input clk;
+input rst;
+input [3:0] data_a,data_b;
+output[7:0] out;
+multipiler obj();
+shift_reg_assn onb2();
+endmodule
