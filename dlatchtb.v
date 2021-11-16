@@ -1,10 +1,9 @@
 `timescale 1ns/1ps
-module dflipfloptb;
+module dlatchtb;
 
-wire q_out,q_bar_out;
+wire q_out,q_bar;
 reg d_in,clr,clk,present;
-dflipflopp_iv a1(d_in,clr,clk,present,q_out, q_bar);
-
+dlatchsync a1(d_in,clr,clk,present,q_out,q_bar);
 initial
  begin 
 #10 d_in= 'bx;clr= 'bx;clk=1'b0;present='bx;
@@ -24,4 +23,4 @@ initial
 
  end
 
-endmodule 
+endmodule

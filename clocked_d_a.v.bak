@@ -1,0 +1,9 @@
+module clocked_d_a(input d_in,input enable_in, input rst, output reg q_out);
+always@(enable_in or d_in or rst)
+  if(!rst)
+    q_out<=0;
+   else
+	 if(enable_in)
+       q_out<=d;
+endmodule
+		 

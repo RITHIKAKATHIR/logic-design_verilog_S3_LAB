@@ -1,0 +1,3 @@
+module dlatch_async(d_in,clr,clk,present,q_out);
+input d_in,clr,clk,present;
+output q_out; 

@@ -1,0 +1,10 @@
+module sram(A,output p,q,r,s);
+input[3:0] A;
+assign a=A[0];
+assign b=A[1];
+assign c=A[2];
+assign d=A[3];
+assign p=~((a^(b^c))^((b&c)^d));
+assign q= (b^((b&c)^d));
+assign r=(c^((b&c)^d));
+assign s=(b&c)^d;
