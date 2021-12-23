@@ -1,33 +1,25 @@
 module multipliertb;
-reg [3:0]A_in,B_in;
+reg clk;
+reg start;
+reg reset;
+reg[3:0] a;
+reg[3:0] b;
 wire[7:0] result_out;
-signed_multiplier obj(.A_in(A_in),.B_in(B_in),.result_out(result_out));
-initial 
+wire finish;
+unsigned_multiplier obj_1(clk,reset,start,finish,a,b,result_out);
+
+initial
  begin
-    A_in=4'b0000;B_in=4'b0001;
-#10 A_in=4'b0001;B_in=4'b0011;
-#10 A_in=4'b0010;B_in=4'b0101;
-#10 A_in=4'b0100;B_in=4'b1001;
-#10 A_in=4'b1000;B_in=4'b0111;
-#10 A_in=4'b1100;B_in=4'b1101;
-#10 A_in=4'b0011;B_in=4'b1111;
-#10 A_in=4'b0110;B_in=4'b1111;
-#10 A_in=4'b0101;B_in=4'b0111;
-#10 A_in=4'b1010;B_in=4'b0111;
-#10 A_in=4'b0111;B_in=4'b1101;
-#10 A_in=4'b1110;B_in=4'b0001;
-#10 A_in=4'b1011;B_in=4'b1001;
-#10 A_in=4'b1101;B_in=4'b0000;
-#10 A_in=4'b1111;B_in=4'b0101;
-#10 A_in=4'b0100;B_in=4'b0111;
-#10 A_in=4'b0001;B_in=4'b0101;
-#10 A_in=4'b1000;B_in=4'b1011;
-#10 A_in=4'b0110;B_in=4'b1101;
-#10 A_in=4'b1100;B_in=4'b0011;
-#10 A_in=4'b0001;B_in=4'b1001;
-#10 A_in=4'b0110;B_in=4'b0101;
-#10 A_in=4'b1111;B_in=4'b1111;
- end
- 
- endmodule
- 
+
+#10 clk=1;reset=0;start=1 ;a=0001 ;b=0001 ;
+#10 clk=1 ;reset=1 ;start=1 ;a=0001 ;b=0001 ;  
+#10 clk=1 ;reset=1;start=1 ;a=0011 ;b=0110 ;
+#10 clk=1 ;reset=1 ;start=1 ;a=1001 ;b=1110 ;
+#10 clk=1 ;reset=1 ;start=1 ;a=0111 ;b=0101 ;
+#10 clk=1 ;reset=1 ;start=1 ;a=0011 ;b=0111 ;
+#10 clk=1 ;reset=1 ;start=1 ;a=1110 ;b=1101 ;
+#10 clk=1 ;reset=1 ;start=1 ;a=0111 ;b=1111 ;
+#10 clk=1 ;reset=1 ;start=1 ;a=1111 ;b=1111 ;
+end
+
+endmodule

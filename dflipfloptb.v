@@ -3,7 +3,7 @@ module dflipfloptb;
 
 wire q_out,q_bar_out;
 reg d_in,clr,clk,present;
-dflipflopp_iv a1(d_in,clr,clk,present,q_out, q_bar);
+d_flip_flop a1(.d_in(d_in),.clr(clr),.clk(clk),.prst(present),.q_1(q_out),.q_bar_1(q_bar));
 
 initial
  begin 
@@ -24,4 +24,4 @@ initial
 
  end
 
-endmodule 
+endmodule

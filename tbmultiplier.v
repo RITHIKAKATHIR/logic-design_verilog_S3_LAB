@@ -1,4 +1,4 @@
-module tb;
+module tbmultiplier;
 reg[3:0] A_in;
 reg [3:0] B_in;
 wire[7:0] result_out;
@@ -29,3 +29,4 @@ initial
   end
 
 endmodule
+	
